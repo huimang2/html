@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 0.75em;
+            min-width: 1050px;
+        }
+        header {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 1000px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 50px;
+            background:#fff;
+            border-bottom: 1px solid #ddd;
+            z-index: 2;
+        }
+        header > .logo {
+            width: 300px;
+            flex-shrink: 0;
+            margin: 10px 0 0 20px;
+        }
+        header > .logo > a {
+            display: block;
+            color: black;
+            font-size: 40px;
+            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+            text-decoration: none;
+        }
+        main.container {
+            overflow: hidden;
+        }
+        nav {
+            display: flex;
+            width: 780px;
+            flex-shrink: 0;
+            margin: 0 0 0 3%;
+        }
+        nav > div {
+            width: 100%;
+            position: relative;
+        }
+        nav > div > a {
+            font-size: 15px;
+            text-decoration: none;
+            color: black;
+            display: grid;
+            place-content: center;
+            height: 90px;
+        }
+        nav > div > a::before {
+            content: "";
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            height: 2px;
+            width: 0;
+            margin-left: 0;
+            background: black;
+            transition: all 0.3s ease;
+
+        }
+        nav > div:hover > a::before {
+            width: 60%;
+            margin-left: -30%;        
+        }
+        nav > div > ul {
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            display: none;
+        }
+        nav:hover > div > ul { display: block; }
+        nav > div > ul > li > a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #777;
+            padding: 5px;
+            font-size: 13px;
+        }
+        nav > div > ul > li > a:hover {
+            color: #0077b0;
+        }
+        header > .btn_area {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-grow: 1;
+            margin-right: 10px;
+            height: 90px;
+            font-size: 15px;
+        }
+        header > .btn_area > .language {
+            position: relative;
+        }
+        header > .btn_area > div > a {
+            color: black;
+            text-decoration: none;
+            margin: 0 5px;
+            position: relative;
+            z-index: 1;
+        }
+        header > .btn_area > :not(.language) > a {
+            display: block;
+            width: 23px;
+            height: 23px;
+        }
+        header > .btn_area > .language > a {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDM2QjZGNDMxNTNBMTFFOEE2REVDMjkzQTVDREU0REEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDM2QjZGNDQxNTNBMTFFOEE2REVDMjkzQTVDREU0REEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpEMzZCNkY0MTE1M0ExMUU4QTZERUMyOTNBNUNERTREQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpEMzZCNkY0MjE1M0ExMUU4QTZERUMyOTNBNUNERTREQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgqeTtcAAABfSURBVHjaYvz//z8DNQETA5XBqIFDwUBTU9P/IExIIy51TPg0kCOHYeDp06cZ8WlEFkNWi9eFuAwlZBgIMOLLeri8hsswgrGMTSM+w4hKNsgGEDKMoJdHs94wMRAgwABUDTBZH9LfUgAAAABJRU5ErkJggg==) no-repeat right;
+            padding: 0 20px 0 5px;
+        }
+        header > .btn_area > .search_btn > a {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QkEzOUYxMjMwRDYxMTFFODk0QjJGM0I3NjExNzBGQ0UiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QkEzOUYxMjQwRDYxMTFFODk0QjJGM0I3NjExNzBGQ0UiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCQTM5RjEyMTBENjExMUU4OTRCMkYzQjc2MTE3MEZDRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCQTM5RjEyMjBENjExMUU4OTRCMkYzQjc2MTE3MEZDRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkWh0dUAAAHESURBVHjaxJVNKIRBGMd3faUkauUjEqWIHBywIUkpHB0swsHFQbj5SjkI+SgXUchVYq+bWFHa7Gn36rI5iAiFklWyflPPYdt4513tZurX8+7OPP/nmZlnZqyhUMgSr5ZgiWNL+q3Dbre3YvqhEfLgE67hCLa8Xq9fJ26NXBZEczG70ARBOIMrSIRKqFV+KgCMEiRoShzhIsw55MMKzOP8HBG8WPo6wAMtjHk3FMdJZXMB1eDA4cBoyoyfw0zBOmOHdBvaJVNe0glLmwY3DBKoVCfeCx+wYKYSSEBNeUb2okcnrrL24PQaRbV54UV8DcVtcBNNHZPIF+YOsnXiqipy/nBWsuBRJ+6DejYn1awqY6tkxn6d+B6kwXAUWU+E+RqK78AlzJJRg4msVW13qtPM2vsMxRmg7g6HlKMb5xFI+UE0E1b5XIN72I/mbinDOKEcbsEFAbnk1N3SBulwKr8zoJvknFpxCaCEBqAP6sJmGJRTuYGYi3ElfB9DoTqp/LetFY8IlCx1rJbtQWo7vL8AcwgVMEb/smlxkyVpk+WrgUWYVNdDTF4ihJ4wzXAC47AZ02eOAG+YdimGQMyW5V8e6G8BBgDCHKWqhzGt0wAAAABJRU5ErkJggg==) no-repeat center;
+        }
+        header > .btn_area > .menu_btn > a {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QzU4NTE0NUYwRDYxMTFFOEI3MEU4NzdBMDA3QzlBMzEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QzU4NTE0NjAwRDYxMTFFOEI3MEU4NzdBMDA3QzlBMzEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDNTg1MTQ1RDBENjExMUU4QjcwRTg3N0EwMDdDOUEzMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDNTg1MTQ1RTBENjExMUU4QjcwRTg3N0EwMDdDOUEzMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk8kZ6cAAABOSURBVHjaYvz//z8DrQATAw0BC4iwsLCguvNPnDjBSFOX0z5YgMCRFoYzDtnUQpek6ECDpHgAFqH7aRGfQzfMR5PiaDofTeeD2eUAAQYAU0sZ7L2lC8sAAAAASUVORK5CYII=) no-repeat center;
+        }
+        header > .btn_area > .language > ul {
+            list-style: none;
+            padding: 40px 0 0;
+            margin: 0;
+            position: absolute;
+            left: -5px;
+            top: 0;
+            border-radius: 5px;
+            display: none;
+        }
+        header > .btn_area > .language > ul::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-bottom: 8px solid #f5f5f5;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            position: absolute;
+            top: 32px;
+            left: 18px;
+        }
+        header > .btn_area > .language > a:hover + ul,
+        header > .btn_area > .language > ul:hover {
+            display: block;
+        }
+        header > .btn_area > .language > ul > li {
+            background: #f5f5f5;
+            width: 85px;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+        header > .btn_area > .language > ul > li:first-child {
+            padding-top: 15px;
+            border-radius: 5px 5px 0 0;
+        }
+        header > .btn_area > .language > ul > li:last-child {
+            padding-bottom: 15px;
+            border-radius: 0 0 5px 5px;
+        }
+        header > .btn_area > .language > ul > li > a {
+            text-decoration: none;
+            color: black;
+            font-size: 12px;
+            margin: 0 5px;
+            line-height: 23px;
+        }
+        header > .btn_area > .language > ul > li > a:hover { color: #0077b0; }
+        header.top {
+            background: transparent;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        header.top > .logo > a {
+            color: white;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+        }
+        header.top > nav > div > a {
+            color: white;
+        }
+        header.top > .btn_area > div > a {
+            color: white;
+        }
+        header.top > .btn_area > .language > a {
+            background: url(./img/ico_down.png) no-repeat right;
+        }
+        
+        header.top > .btn_area > .search_btn > a {
+            background: url(./img/top_btn_search.png) no-repeat center;
+        }
+        header.top > .btn_area > .menu_btn > a {
+            background: url(./img/full_btn.png) no-repeat center;
+        }
+
+        #board .picture{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 400px;
+        }
+        #board .picture>img{
+            width: 2000px;
+            position: absolute;
+            left: 50%;
+            margin-left: -1000px;
+
+        }
+        
+        #board .event{
+            display: block;
+            margin-top: 50px;
+            margin-left:30px;
+            color: rgb(85, 85, 85);
+            font-size: 25px;
+        }
+        #board .event, #board .flex{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        #board .flex{
+            font-size: 0.65em;
+        }
+        #board a:link{
+            color: #757575;
+          }
+        #board a:visited {
+            color : black;
+        }
+        #board a:hover {
+            color : black;
+        }
+        #board a:active {
+            color : black;
+        }
+        #board .sized {
+            width: 100%;
+            float: left;
+            margin-top: 100px;
+        }
+        #board .search {
+            float: right;
+            padding-bottom: 5px;
+            padding-right: 20px;
+        }
+        #board .search-1 {
+            color: #fff!important;
+            background-color: #666;
+            font-size: 13px;
+        }
+        #board .grid {
+            display: grid;
+            grid-template-columns: 70px 1fr 150px 150px;
+            grid-template-rows: repeat(15,2fr);
+            width:97%;
+            color: #777;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin: 0 auto;
+            text-align: center;
+            row-gap: 5px;  
+        }
+        #board .grid>.lol-1 {
+            font-weight: bold;
+        }
+        #board .grid>.lol-2 {
+            text-align: left;
+            font-size:15px;
+        }
+        #board .grid>.lol-3 {
+            font-size: 14px;
+        }
+        #board .grid>.lol-4 {
+            font-size:12px;
+        }
+        #board .grid>[class^=lol]{
+            border-bottom: 1px solid #dfdfdf;
+            padding: 8px;
+        }
+        #board .button{
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-decoration: none;
+        }
+        #board > .content {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 1500px) {
+            header { padding: 0 10px; }
+            nav { width: 660px; margin: 0; }
+        }
+        @media screen and (max-width: 1250px) {
+            article > .grid {
+                width: 1000px;
+            }
+            article.article-4 > .grid {
+                grid-auto-rows: 200px;
+            }
+            article.article-4 > .grid > a.col-1 > img {
+                width: 200px;
+            }
+            article.article-4 > .grid > a.col-2 > img {
+                width: 400px;
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            header > .logo { width: 230px; }
+            nav { width: 560px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="top">
+        <div class="logo"><a href="./index.html">CLIO</a></div>
+        <nav>
+            <div>
+                <a href="#">COMPANY</a>
+                <ul>
+                    <li><a href="#">CLIO소개</a></li>
+                    <li><a href="#">CEO인사말</a></li>
+                    <li><a href="#">연혁</a></li>
+                    <li><a href="#">오시는 길</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">PRODUCT</a>
+                <ul>
+                    <li><a href="#">NEW&amp;BEST</a></li>
+                    <li><a href="#">클리어스</a></li>
+                    <li><a href="#">칫솔</a></li>
+                    <li><a href="#">치약(의약외품)</a></li>
+                    <li><a href="#">화장비누(세안비누)</a></li>
+                    <li><a href="#">세제/세정제</a></li>
+                    <li><a href="#">의약외품</a></li>
+                    <li><a href="#">의료기기</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">Clean CLIO</a>
+                <ul>
+                    <li><a href="#">구강케어 정보</a></li>
+                    <li><a href="#">EVENT</a></li>
+                    <li><a href="#">NEWS</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">STORE</a>
+                <ul>
+                    <li><a href="#">STORE</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">CONTACT US</a>
+                <ul>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="btn_area">
+            <div class="language">
+                <a href="#">KOR</a>
+                <ul>
+                    <li><a href="#">한국어</a></li>
+                    <li><a href="#">English</a></li>
+                </ul> 
+            </div>
+            <div class="search_btn"><a href="#"></a></div>
+            <div class="menu_btn"><a href="#"></a></div>
+        </div>
+    </header>
+
+    <main id="board" class="container">
+        <div class="picture">
+            <img src="./img/blog img.jpg">
+        </div>
+        <div class="content">
+            <div class="event">
+                <h2 style="font-weight: 700;">EVENT</h2>
+                <div class="flex">
+                    <div>홈></div>
+                    <div class="site"><a style="text-decoration:none;" 
+                        href="http://drclio.co.kr/board/gallery/list.html?board_no=8">CLEAN clio></a></div>
+                    <div style="font-weight: bold;">EVENT</div>
+                </div>        
+            </div>
+            <div class="sized">
+                <form class="search">
+                    <select name="date">
+                        <option value="week" selected>일주일</option>
+                        <option value="month">한달</option>
+                        <option value="month3">세달</option>
+                        <option value="all">전체</option>
+                    </select>
+                    <select name="group">
+                        <option value="subject" selected>제목</option>
+                        <option value="content">내용</option>
+                        <option value="member_id">ID</option>
+                        <option value="nick_name">닉네임</option>
+                        <option value="product">상품정보</option>
+                    </select> 
+                    <input  type="search" name="search">
+                    <input class="search-1" type="submit" value="찾기">
+                </form>
+            </div>
+            <br><br>
+            <div class="grid">
+                <div class="lol-1">15</div>
+                <div class="lol-2">이 자석파스의 이름은 무엇일까요?</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2019-05-30</div>
+            
+                <div class="lol-1">14</div>
+                <div class="lol-2">크리오에서 새해맞이 살림 장만하자!</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2019-01-09</div>
+        
+                <div class="lol-1">13</div>
+                <div class="lol-2">당신의 취향저격 칫솔은?</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2019-01-09</div>
+        
+                <div class="lol-1">12</div>
+                <div class="lol-2">1년간 열심히 달려온 수험생 다 모여라!</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-12-03</div>
+        
+                <div class="lol-1">11</div>
+                <div class="lol-2">크리오가 100명에게 쏜다!</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-11-15</div>
+        
+                <div class="lol-1">10</div>
+                <div class="lol-2">CLIO X 스티키몬스터할로윈 EVENT</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-11-15</div>
+        
+                <div class="lol-1">09</div>
+                <div class="lol-2">한글날 이벤트 "크리오 칫솔 한글 이름 짓기!"</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-10-17</div>
+        
+                <div class="lol-1">08</div>
+                <div class="lol-2">와우 깨끗해 출시 기념</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-09-20</div>
+        
+                <div class="lol-1">07</div>
+                <div class="lol-2">CLIO X 스티키몬스터: 타로카드 EVENT</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-08-31</div>
+
+                <div class="lol-1">06</div>
+                <div class="lol-2">CLIO닥터 프레쉬, 세균을 잡아라!</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-08-31</div>
+
+                <div class="lol-1">05</div>
+                <div class="lol-2">CC캠페인-크리오가 펌프치약 쏜다</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-08-24</div>
+        
+
+                <div class="lol-1">04</div>
+                <div class="lol-2">당신의 펌프치약 취향은?</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-08-24</div>
+        
+                <div class="lol-1">03</div>
+                <div class="lol-2">닥터프레쉬 핸드워시 취향</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-08-24</div>
+
+                <div class="lol-1">02</div>
+                <div class="lol-2">스티키칫솔 이벤트</div>
+                <div class="lol-3">(주)크리오</div>
+                <div class="lol-4">2018-08-24</div>
+
+                <div class="lol-1">01</div>
+                <div class="lol-2">칫솔 탐구 영역</div>
+                <div class="lol-3">크리오 홈페이지</div>
+                <div class="lol-4">2019-08-22</div>
+            </div>
+            <div class="button">
+                <span><input type="button" name="bfore" value="이전"></span> 
+                <span> <a style="text-decoration: none;"
+                    href="http://127.0.0.1:5500/CLIOevent.html">1</a></span>
+                <span><input type="button" name="next" value="다음"></span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.onload = function() {
+        
+            document.querySelector("header").classList.toggle("top", !window.scrollY);
+
+            window.addEventListener("scroll", (event) => {
+                document.querySelector("header").classList.toggle("top", !this.scrollY);
+            });
+
+            document.querySelector("nav").addEventListener("mouseover", ()=>{
+                document.querySelector("header").classList.remove("top");
+            });
+
+            document.querySelector("nav").addEventListener("mouseout", ()=>{
+                document.querySelector("header").classList.toggle("top", !window.scrollY);
+            });
+
+            document.querySelectorAll("a[href='#']").forEach(v=>{
+                v.addEventListener("click", e=>{
+                    e.preventDefault();
+                });
+            });
+        }
+    </script>
+</body>
+</html>
