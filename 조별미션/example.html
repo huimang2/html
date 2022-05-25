@@ -336,14 +336,99 @@
             transform: scale(1.05);
             z-index: 1;
         }
-
-        
+        section {
+            background: #2c2c2c;
+        }
+        section > .grid {
+            grid-template-columns: auto 365px;
+            padding: 35px 0;
+        }
+        section > .grid > .insta > h2 {
+            margin: 5px 0 0;
+            color: white;
+        }
+        section > .grid > .insta > a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        section > .grid > .customer_center {
+            display: grid;
+            grid-template-areas: 
+                "title title title title"
+                "time time time time"
+                "message text telimg telnumber";
+            justify-content: start;
+            align-items: center;
+        }
+        section > .grid > .customer_center > h3 {
+            grid-area: title;
+            margin: 0;
+            color: white;
+        }
+        section > .grid > .customer_center > .time {
+            grid-area: time;
+            margin: 20px 0;
+        }
+        section > .grid > .customer_center > .message {
+            grid-area: message;
+        }
+        section > .grid > .customer_center > .text {
+            grid-area: text;
+        }
+        section > .grid > .customer_center > .telnumber {
+            grid-area: telnumber;
+        }
+        section > .grid > .customer_center > .time ~ p {
+            margin: 0 15px 0 0;
+        }
+        section > .grid > .customer_center > h3 ~ p {
+            color: #9f9f9f;
+            font-size: 14px;
+        }
+        section > .grid > .customer_center a {
+            color: #9f9f9f;
+            text-decoration: none;
+        }
+        footer {
+            width: 100%;
+            overflow: hidden;
+        }
+        footer.line {
+            border-top: 2px solid black;
+        }
+        footer > .bottom {
+            margin: 0 auto;
+            width: 1200px;
+            padding: 13px 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        footer > .bottom > .address {
+            line-height: 18px;
+            color: #757575;
+        }
+        footer > .bottom > .sns {
+            display: flex;
+            align-items: center;
+        }
+        footer span {
+            padding-right: 10px;
+        }
+        footer a {
+            text-decoration: none;
+            color: #757575;
+        }
+        footer a:hover {
+            color: #757575;
+        }
         @media screen and (max-width: 1500px) {
             header { padding: 0 10px; }
             nav { width: 660px; margin: 0; }
         }
         @media screen and (max-width: 1250px) {
-            article > .grid {
+            main > * > .grid {
                 width: 1000px;
             }
             article.article-4 > .grid {
@@ -354,6 +439,10 @@
             }
             article.article-4 > .grid > a.col-2 > img {
                 width: 400px;
+            }
+            footer {
+                width: 95%;
+                margin: 0 auto;
             }
         }
         @media screen and (max-width: 1200px) {
@@ -422,10 +511,10 @@
         </div>
     </header>
 
-    <main class="container">
+    <main>
         <article class="article-1">
             <div class="image">
-                <a href="#"><img src="./img/vi_02.jpg"></a>
+                <a class="selected" href="#"><img src="./img/vi_02.jpg"></a>
                 <a href="#"><img src="./img/vi_03.jpg"></a>
                 <a href="#"><img src="./img/vi_01.jpg"></a>
                 <a href="#"><img src="./img/vi_04.jpg"></a>
@@ -457,7 +546,7 @@
             <div class="grid">
                 <div class="col-title">
                     <h2>NEWS</h2>
-                    <div class="small-title"><img src="./img/clio2.png">에서 새로운 소식을 전합니다.</div>
+                    <div class="small-title"><img src="./img/clio2.jpg">에서 새로운 소식을 전합니다.</div>
                 </div>
                 <div class="col-1">
                     <iframe width="100%" height="330" src="https://www.youtube.com/embed/YigIIpxT7uQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -487,7 +576,51 @@
                 <a class="col-1" href="#"><img src="./img/img12.jpg"></a>
             </div>
         </article>
+
+        <section class="contact">
+            <div class="grid">
+                <div class="insta">
+                    <h2>INSTAGRAM</h2>
+                    <a href="#">
+                        FOLLOW >
+                        <br>
+                        @clean_clio
+                    </a>
+                </div>
+                <div class="customer_center">
+                    <h3>CUSTOMER CENTER</h3>
+                    <p class="time">AM 09:00~ PM 05:00 / SAT.SUN.HOLIDAY OFF</p>
+                    <p class="message"><a href="#"><img src="./img/message.png"></a></p>
+                    <p class="text"><a href="#">온라인 문의</a></p>
+                    <p class="telimg"><img src="./img/tel.png"></p>
+                    <p class="telnumber">080-706-3810</p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="bottom">
+            <div class="address">
+                <span>법인명(상호) : (주)크리오</span>
+                <span>대표자(성명) : 박대식</span>
+                <span>사업자 등록번호 안내 : [129-81-16141]</span> 
+                <span>전화 : 02-6920-6700</span>
+                <span>팩스 : 031-706-5246</span>
+                <br>
+                <span>주소 : 06732 서울특별시 서초구 서운로 13 (서초동) 중앙로얄오피스텔 18층</span>
+                <br>
+                <span><a href="#" target="_blank">개인정보처리방침</a></span>
+                <span>Copyright © 2018 크리오홈페이지</span>
+                <span>All rights reserved.</span>
+            </div>
+            <div class="sns">
+                <a href="#"><img src="./img/sns_01.png"></a>
+                <a href="#"><img src="./img/sns_02.png"></a>
+                <a href="#"><img src="./img/sns_03.png"></a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         window.onload = function() {
@@ -555,6 +688,8 @@
                     e.preventDefault();
                 });
             });
+
+            document.querySelector("footer").classList.toggle("line", !document.querySelector("section.contact"));
         }
     </script>
 </body>

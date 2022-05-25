@@ -1,0 +1,129 @@
+/** 문정은 **/
+
+#visual .DB_img {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 664px;
+    overflow: hidden;
+}
+#visual .DB_img > li {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1000px;
+    width: 2000px;
+    opacity: 0;
+    transition: opacity .8s ease;
+}
+#visual .DB_img > li.selected {
+    opacity: 1;
+    z-index: 1;
+}
+#visual .DB_img > li > a > img {
+    width: 100%;
+}
+#visual .DB_menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    column-gap: 5px;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    z-index: 2;
+}
+#visual .DB_menu > li > a {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: darkgray;
+    border-radius: 50%;
+}
+#visual .DB_menu > li.selected > a {
+    background: white;
+}
+
+#banner {
+    display: grid;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+    background-color: #f5f5f5;
+    grid-template-columns: repeat(auto-fill, 24%);
+    grid-gap: 1%;
+    /* space-between 걸고 갭 1퍼도 주는 이유 찾아보기 */
+    justify-content: space-between;
+    justify-items: center;
+}
+#banner .col-1 {
+    display: grid;
+    grid-template-rows: 207px 150px;
+    align-items: center;
+
+}
+#banner>.col-1:not(:last-child)>div{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+#banner>div:nth-child(2)>div:nth-child(2)>div:nth-child(2){
+    font-size: 14px;
+}
+#banner>.col-1:nth-child(4)>div:first-child{
+    align-self: flex-end;
+}
+.col-1 h3{
+    font-size: 18px;
+    font-weight: 600;
+    height: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #a7a7a7;
+}
+.more::before{
+    background-color: #a8a8a8;
+    content: '|';
+    transform: rotate(0deg);
+    transition: all .2s ease;
+}
+#news{
+    width: 100%;
+    padding: 100px 0;
+}
+.news{
+    display: grid;
+    width: 1200px;
+    justify-content: center;
+    margin: 0 auto;
+}
+.news_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.news_title>h2{
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+.news_list>div{
+    height:35px;
+}
+.news_list span{
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #727272;
+    padding: 4px;
+}
+.news_list a{
+    font-size: 13px;
+}
+.video{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 1200px;
+    gap: 25px;
+}

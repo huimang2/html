@@ -4,363 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- 조인국 -->
+    <link type="text/css" rel="stylesheet" href="./style/common.css">
+
+    <!-- 문정은 -->
+    <link type="text/css" rel="stylesheet" href="./style/main_1.css">
+
+    <!-- 박혁진 -->
+    <link type="text/css" rel="stylesheet" href="./style/main_2.css">
+
+    <title>(주)크리오</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-size: 0.75em;
-            min-width: 1050px;
-        }
-        header {
-            display: flex;
-            position: fixed;
-            top: 0;
-            left: 0;
-            min-width: 1000px;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0 50px;
-            background:#fff;
-            border-bottom: 1px solid #ddd;
-            z-index: 2;
-        }
-        header > .logo {
-            width: 300px;
-            flex-shrink: 0;
-            margin: 10px 0 0 20px;
-        }
-        header > .logo > a {
-            display: block;
-            color: black;
-            font-size: 40px;
-            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-            text-decoration: none;
-        }
-        main.container {
-            overflow: hidden;
-        }
-        nav {
-            display: flex;
-            width: 780px;
-            flex-shrink: 0;
-            margin: 0 0 0 3%;
-        }
-        nav > div {
-            width: 100%;
-            position: relative;
-        }
-        nav > div > a {
-            font-size: 15px;
-            text-decoration: none;
-            color: black;
-            display: grid;
-            place-content: center;
-            height: 90px;
-        }
-        nav > div > a::before {
-            content: "";
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            height: 2px;
-            width: 0;
-            margin-left: 0;
-            background: black;
-            transition: all 0.3s ease;
 
-        }
-        nav > div:hover > a::before {
-            width: 60%;
-            margin-left: -30%;        
-        }
-        nav > div > ul {
-            list-style: none;
-            padding: 10px 0;
-            margin: 0;
-            display: none;
-        }
-        nav:hover > div > ul { display: block; }
-        nav > div > ul > li > a {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            color: #777;
-            padding: 5px;
-            font-size: 13px;
-        }
-        nav > div > ul > li > a:hover {
-            color: #0077b0;
-        }
-        header > .btn_area {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            flex-grow: 1;
-            margin-right: 10px;
-            height: 90px;
-            font-size: 15px;
-        }
-        header > .btn_area > .language {
-            position: relative;
-        }
-        header > .btn_area > div > a {
-            color: black;
-            text-decoration: none;
-            margin: 0 5px;
-            position: relative;
-            z-index: 1;
-        }
-        header > .btn_area > :not(.language) > a {
-            display: block;
-            width: 23px;
-            height: 23px;
-        }
-        header > .btn_area > .language > a {
-            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDM2QjZGNDMxNTNBMTFFOEE2REVDMjkzQTVDREU0REEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDM2QjZGNDQxNTNBMTFFOEE2REVDMjkzQTVDREU0REEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpEMzZCNkY0MTE1M0ExMUU4QTZERUMyOTNBNUNERTREQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpEMzZCNkY0MjE1M0ExMUU4QTZERUMyOTNBNUNERTREQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgqeTtcAAABfSURBVHjaYvz//z8DNQETA5XBqIFDwUBTU9P/IExIIy51TPg0kCOHYeDp06cZ8WlEFkNWi9eFuAwlZBgIMOLLeri8hsswgrGMTSM+w4hKNsgGEDKMoJdHs94wMRAgwABUDTBZH9LfUgAAAABJRU5ErkJggg==) no-repeat right;
-            padding: 0 20px 0 5px;
-        }
-        header > .btn_area > .search_btn > a {
-            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QkEzOUYxMjMwRDYxMTFFODk0QjJGM0I3NjExNzBGQ0UiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QkEzOUYxMjQwRDYxMTFFODk0QjJGM0I3NjExNzBGQ0UiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCQTM5RjEyMTBENjExMUU4OTRCMkYzQjc2MTE3MEZDRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCQTM5RjEyMjBENjExMUU4OTRCMkYzQjc2MTE3MEZDRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkWh0dUAAAHESURBVHjaxJVNKIRBGMd3faUkauUjEqWIHBywIUkpHB0swsHFQbj5SjkI+SgXUchVYq+bWFHa7Gn36rI5iAiFklWyflPPYdt4513tZurX8+7OPP/nmZlnZqyhUMgSr5ZgiWNL+q3Dbre3YvqhEfLgE67hCLa8Xq9fJ26NXBZEczG70ARBOIMrSIRKqFV+KgCMEiRoShzhIsw55MMKzOP8HBG8WPo6wAMtjHk3FMdJZXMB1eDA4cBoyoyfw0zBOmOHdBvaJVNe0glLmwY3DBKoVCfeCx+wYKYSSEBNeUb2okcnrrL24PQaRbV54UV8DcVtcBNNHZPIF+YOsnXiqipy/nBWsuBRJ+6DejYn1awqY6tkxn6d+B6kwXAUWU+E+RqK78AlzJJRg4msVW13qtPM2vsMxRmg7g6HlKMb5xFI+UE0E1b5XIN72I/mbinDOKEcbsEFAbnk1N3SBulwKr8zoJvknFpxCaCEBqAP6sJmGJRTuYGYi3ElfB9DoTqp/LetFY8IlCx1rJbtQWo7vL8AcwgVMEb/smlxkyVpk+WrgUWYVNdDTF4ihJ4wzXAC47AZ02eOAG+YdimGQMyW5V8e6G8BBgDCHKWqhzGt0wAAAABJRU5ErkJggg==) no-repeat center;
-        }
-        header > .btn_area > .menu_btn > a {
-            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QzU4NTE0NUYwRDYxMTFFOEI3MEU4NzdBMDA3QzlBMzEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QzU4NTE0NjAwRDYxMTFFOEI3MEU4NzdBMDA3QzlBMzEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDNTg1MTQ1RDBENjExMUU4QjcwRTg3N0EwMDdDOUEzMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDNTg1MTQ1RTBENjExMUU4QjcwRTg3N0EwMDdDOUEzMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk8kZ6cAAABOSURBVHjaYvz//z8DrQATAw0BC4iwsLCguvNPnDjBSFOX0z5YgMCRFoYzDtnUQpek6ECDpHgAFqH7aRGfQzfMR5PiaDofTeeD2eUAAQYAU0sZ7L2lC8sAAAAASUVORK5CYII=) no-repeat center;
-        }
-        header > .btn_area > .language > ul {
-            list-style: none;
-            padding: 40px 0 0;
-            margin: 0;
-            position: absolute;
-            left: -5px;
-            top: 0;
-            border-radius: 5px;
-            display: none;
-        }
-        header > .btn_area > .language > ul::before {
-            content: "";
-            width: 0;
-            height: 0;
-            border-bottom: 8px solid #f5f5f5;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            position: absolute;
-            top: 32px;
-            left: 18px;
-        }
-        header > .btn_area > .language > a:hover + ul,
-        header > .btn_area > .language > ul:hover {
-            display: block;
-        }
-        header > .btn_area > .language > ul > li {
-            background: #f5f5f5;
-            width: 85px;
-            padding: 0 10px;
-            box-sizing: border-box;
-        }
-        header > .btn_area > .language > ul > li:first-child {
-            padding-top: 15px;
-            border-radius: 5px 5px 0 0;
-        }
-        header > .btn_area > .language > ul > li:last-child {
-            padding-bottom: 15px;
-            border-radius: 0 0 5px 5px;
-        }
-        header > .btn_area > .language > ul > li > a {
-            text-decoration: none;
-            color: black;
-            font-size: 12px;
-            margin: 0 5px;
-            line-height: 23px;
-        }
-        header > .btn_area > .language > ul > li > a:hover { color: #0077b0; }
-        header.top {
-            background: transparent;
-            border-bottom-color: rgba(255, 255, 255, 0.2);
-        }
-        header.top > .logo > a {
-            color: white;
-            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-        }
-        header.top > nav > div > a {
-            color: white;
-        }
-        header.top > .btn_area > div > a {
-            color: white;
-        }
-        header.top > .btn_area > .language > a {
-            background: url(./img/ico_down.png) no-repeat right;
-        }
-        
-        header.top > .btn_area > .search_btn > a {
-            background: url(./img/top_btn_search.png) no-repeat center;
-        }
-        header.top > .btn_area > .menu_btn > a {
-            background: url(./img/full_btn.png) no-repeat center;
-        }
-
-
-        #visual .DB_img {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            position: relative;
-            height: 664px;
-            overflow: hidden;
-        }
-
-        #visual .DB_img > li {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            margin-left: -1000px;
-            opacity: 0;
-            transition: opacity .8s ease;
-        }
-
-        #visual .DB_img > li.selected {
-            opacity: 1;
-            z-index: 1;
-        }
-
-        #visual .DB_img > li > a > img {
-            width: 2000px;
-        }
-
-        #visual .DB_menu {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            column-gap: 5px;
-            justify-content: center;
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            z-index: 2;
-        }
-
-        #visual .DB_menu > li > a {
-            display: block;
-            width: 8px;
-            height: 8px;
-            background: darkgray;
-            border-radius: 50%;
-        }
-
-        #visual .DB_menu > li.selected > a {
-            background: white;
-        }
-
-        #banner {
-            display: grid;
-            width: 1200px;
-            margin: 0 auto;
-            padding: 100px 0;
-            background-color: #f5f5f5;
-            grid-template-columns: repeat(auto-fill, 24%);
-            grid-gap: 1%;
-            /* space-between 걸고 갭 1퍼도 주는 이유 찾아보기 */
-            justify-content: space-between;
-            justify-items: center;
-        }
-        #banner .col-1 {
-            display: grid;
-            grid-template-rows: 207px 150px;
-            align-items: center;
-
-        }
-        #banner>.col-1:not(:last-child)>div{
-            text-align: center;
-            font-size: 20px;
-            font-weight: 500;
-        }
-        #banner>div:nth-child(2)>div:nth-child(2)>div:nth-child(2){
-            font-size: 14px;
-        }
-        #banner>.col-1:nth-child(4)>div:first-child{
-            align-self: flex-end;
-        }
-        .col-1 h3{
-            font-size: 18px;
-            font-weight: 600;
-            height: 30px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #a7a7a7;
-        }
-        .more::before{
-            background-color: #a8a8a8;
-            content: '|';
-            transform: rotate(0deg);
-            transition: all .2s ease;
-        }
-        #news{
-            width: 100%;
-            padding: 100px 0;
-        }
-        .news{
-            display: grid;
-            width: 1200px;
-            justify-content: center;
-            margin: 0 auto;
-        }
-        .news_title{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-        .news_title>h2{
-            font-size: 44px;
-            margin-bottom: 10px;
-        }
-        .news_list>div{
-            height:35px;
-        }
-        .news_list span{
-            font-size: 12px;
-            color: #ffffff;
-            background-color: #727272;
-            padding: 4px;
-        }
-        .news_list a{
-            font-size: 13px;
-        }
-        .video{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 1200px;
-            gap: 25px;
-        }
-
-
-
-
-        
-        @media screen and (max-width: 1500px) {
-            header { padding: 0 10px; }
-            nav { width: 660px; margin: 0; }
-        }
-        @media screen and (max-width: 1250px) {
-            article > .grid {
-                width: 1000px;
-            }
-            article.article-4 > .grid {
-                grid-auto-rows: 200px;
-            }
-            article.article-4 > .grid > a.col-1 > img {
-                width: 200px;
-            }
-            article.article-4 > .grid > a.col-2 > img {
-                width: 400px;
-            }
-        }
-        @media screen and (max-width: 1200px) {
-            header > .logo { width: 230px; }
-            nav { width: 560px; }
-        }
     </style>
 </head>
 <body>
+    <!-- 조인국 -->
     <header class="top">
         <div class="logo"><a href="#">CLIO</a></div>
         <nav>
@@ -422,6 +82,7 @@
 
     <main class="container">
 
+        <!-- 문정은 -->
         <article id="visual" class="article-1">
             <ul class="DB_img">
                 <li><a href="#"><img src="./img/자연주의 칫솔.jpg"></a></li>
@@ -437,18 +98,159 @@
             </ul>
         </article>
 
-        <article class="article-2">
-
+        <!-- 문정은 -->
+        <article id="banner" class="article-2">
+            <div class="col-1">
+                <div>
+                    <a href="#">
+                        <img src="./img/배너 첫번째.jpg">
+                    </a>
+                </div>
+                <div>
+                    <div>NEW&BEST</div>
+                </div>
+            </div>
+            <div class="col-1">
+                <div>
+                    <a href="#">
+                        <img src="./img/배너 두번째.jpg">
+                    </a>
+                </div>
+                <div>
+                    <div>구강케어 정보</div>
+                    <div><img src="./img/CLIO 마크.jpg"> 함께하는 올바른 구강 관리법</div>
+                </div>
+            </div>
+            <div class="col-1">
+                <div>
+                    <a href="#">
+                        <img src="./img/배너 세번째.jpg">
+                    </a>
+                </div>
+                    <div>Contact Us</div>
+                </div>
+            </div>
+            <div class="col-1">
+                <div>
+                    <h3>뉴스룸
+                        <a href="#">
+                            <span class="more"></span>
+                        </a>
+                    </h3>
+                    <a href="#">
+                        <img src="./img/배너 네번째.jpg">
+                    </a>
+                </div>
+                <div class="news_list">
+                    <div>
+                        <span class="icon_news">뉴스</span>
+                        <a href="#">2021년 소비자 추천 브랜드</a>
+                    </div>
+                    <div>
+                        <span class="icon_news">뉴스</span>
+                        <a href="#">2019년 소비자추천 1위</a>
+                    </div>
+                    <div>
+                        <span class="icon_news">뉴스</span>
+                        <a href="#">크리오 홈페이지 리뉴얼</a>
+                    </div>
+                </div>
+            </div>
         </article>
 
-        <article class="article-3">
-
+        <!-- 문정은 -->
+        <article id="news" class="article-3">
+            <div class="news">
+                <div class="news_title">
+                    <h2>NEWS</h2>
+                    <p>
+                        <img src="./img/CLIO 마크.jpg">
+                        에서 새로운 소식을 전합니다.
+                    </p>
+                </div>
+                <div class="video">
+                    <div class="left">
+                        <iframe width="100%" height="330" src="https://www.youtube.com/embed/YigIIpxT7uQ" title="Youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscop; picture-in-picture" allowfullscreen></iframe>
+                    </div>                
+                    <div class="right">
+                        <iframe width="100%" height="330" src="https://www.youtube.com/embed/Y0prKBrOnm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
         </article>
 
+        <!-- 박혁진 -->
         <article class="article-4">
-
+            <h1>NEW&BEST PRODUCT</h1>
+            <div class="grid">
+                <a class="col-2" href="#"><img src="./img/img01.jpg" alt="이미지가 표시되지않습니다."></a>
+                <a class="col-1" href="#"><img src="./img/img02.jpg" alt="이미지가 표시되지않습니다."></a>
+                <a class="col-1" href="#"><img src="./img/img03.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-1" href="#"><img src="./img/img04.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-1" href="#"><img src="./img/img05.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-1" href="#"><img src="./img/img06.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-2" href="#"><img src="./img/img07.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-1" href="#"><img src="./img/img08.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-2" href="#"><img src="./img/img09.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-1" href="#"><img src="./img/img10.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-1" href="#"><img src="./img/img11.jpg" alt="이미지가 표시되지않습니다. "></a>
+                <a class="col-1" href="#"><img src="./img/img12.jpg" alt="이미지가 표시되지않습니다. "> </a>  
+            </div>
         </article>
+
+        <!-- 박혁진 -->
+        <section class="contact">
+            <div class="customer">
+                <div class="left">
+                  <h2>INSTARGRAM
+                    <br>
+                    <a style="text-decoration: none;" href="#" target="_blank">
+                      FOLLOW > <br> @clean_clio 
+                    </a>
+                  </h2>
+                </div>
+                <div class="right">
+                    <h3>CUSTOMER CENTER</h3><br>
+                    <p class="time">AM 09:00~PM 05:00 / SAT,SUN,HOLIDAY OFF</p>
+                    <table>
+                        <tr>
+                            <th>
+                                <a href="#"><img src="./img/message.png"></a>
+                                <a style="text-decoration: none;" href="#">온라인문의</a> 
+                            </th>
+                            <th>
+                                <img src="./img/tel.png">080-706-3810
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- 조인국 -->
+    <footer>
+        <div class="bottom">
+            <div class="address">
+                <span>법인명(상호) : (주)크리오</span>
+                <span>대표자(성명) : 박대식</span>
+                <span>사업자 등록번호 안내 : [129-81-16141]</span> 
+                <span>전화 : 02-6920-6700</span>
+                <span>팩스 : 031-706-5246</span>
+                <br>
+                <span>주소 : 06732 서울특별시 서초구 서운로 13 (서초동) 중앙로얄오피스텔 18층</span>
+                <br>
+                <span><a href="#" target="_blank">개인정보처리방침</a></span>
+                <span>Copyright © 2018 크리오홈페이지</span>
+                <span>All rights reserved.</span>
+            </div>
+            <div class="sns">
+                <a href="#"><img src="./img/sns_01.png"></a>
+                <a href="#"><img src="./img/sns_02.png"></a>
+                <a href="#"><img src="./img/sns_03.png"></a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         window.onload = function() {
@@ -472,7 +274,10 @@
                     e.preventDefault();
                 });
             });
+
+            document.querySelector("footer").classList.toggle("line", !document.querySelector("section.contact"));
         }
     </script>
+
 </body>
 </html>
