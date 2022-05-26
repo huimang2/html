@@ -7,6 +7,7 @@
 
     <!-- 조인국 -->
     <link type="text/css" rel="stylesheet" href="./style/common.css">
+    <script src="./script/common.js"></script>
 
     <!-- 문정은 -->
     <link type="text/css" rel="stylesheet" href="./style/main_1.css">
@@ -14,7 +15,7 @@
     <!-- 박혁진 -->
     <link type="text/css" rel="stylesheet" href="./style/main_2.css">
 
-    <title>(주)크리오</title>
+    <title>공통 인터페이스 템플릿</title>
     <style>
 
     </style>
@@ -104,57 +105,9 @@
 
         <!-- 박혁진 -->
         <section>
-            <div class="customer flex">
-                <div class="insta">INSTARGRAM
-                    <br>
-                    <a style="font-size: 0.7em;" href="https://www.instagram.com/accounts/login/?next=/clean_clio/" target="_blank">
-                      FOLLOW > <br> @clean_clio 
-                    </a>
-                </div>
-                <div class="grid-container">
-                    <div class="title">CUSTOMER CENTER</div>
-                    <div class="text">AM 09:00~PM 05:00 / SAT,SUN,HOLIDAY OFF</div>
-                    <div class="message">
-                        <a href="http://drclio.co.kr/board/urgency/urgency.html">
-                            <img src="./img/message.png">
-                        </a>
-                    </div>              
-                    <div class="online">
-                        <a href="http://drclio.co.kr/board/urgency/urgency.html">온라인문의</a>
-                    </div>         
-                    <div class="telling"><img src="./img/tell.png"></div>
-                    <div class="number"> 080-706-3810</div>                           
-                </div>
-            </div>
-          <section>
+
+        <section>
     </footer>
-
-    <script>
-        window.onload = function() {
-        
-            document.querySelector("header").classList.toggle("top", !window.scrollY);
-
-            window.addEventListener("scroll", (event) => {
-                document.querySelector("header").classList.toggle("top", !this.scrollY);
-            });
-
-            document.querySelector("nav").addEventListener("mouseover", ()=>{
-                document.querySelector("header").classList.remove("top");
-            });
-
-            document.querySelector("nav").addEventListener("mouseout", ()=>{
-                document.querySelector("header").classList.toggle("top", !window.scrollY);
-            });
-
-            document.querySelectorAll("a[href='#']").forEach(v=>{
-                v.addEventListener("click", e=>{
-                    e.preventDefault();
-                });
-            });
-
-            document.querySelector("footer").classList.toggle("line", !document.querySelector("section.contact"));
-        }
-    </script>
 
 </body>
 </html>
