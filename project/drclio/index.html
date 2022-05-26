@@ -7,6 +7,7 @@
 
     <!-- 조인국 -->
     <link type="text/css" rel="stylesheet" href="./style/common.css">
+    <script SRC="./script/common.js"></script>
 
     <!-- 문정은 -->
     <link type="text/css" rel="stylesheet" href="./style/main_1.css">
@@ -15,9 +16,7 @@
     <link type="text/css" rel="stylesheet" href="./style/main_2.css">
 
     <title>(주)크리오</title>
-    <style>
 
-    </style>
 </head>
 <body>
     <!-- 조인국 -->
@@ -201,13 +200,12 @@
         <!-- 박혁진 -->
         <section class="contact">
             <div class="customer flex">
-                <div>INSTARGRAM
+                <div class="insta">INSTARGRAM
                     <br>
-                    <a  href="https://www.instagram.com/accounts/login/?next=/clean_clio/" target="_blank" style="  text-decoration: none;">
+                    <a style="font-size: 0.7em;" href="https://www.instagram.com/accounts/login/?next=/clean_clio/" target="_blank">
                       FOLLOW > <br> @clean_clio 
                     </a>
                 </div>
-
                 <div class="grid-container">
                     <div class="title">CUSTOMER CENTER</div>
                     <div class="text">AM 09:00~PM 05:00 / SAT,SUN,HOLIDAY OFF</div>
@@ -249,33 +247,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        window.onload = function() {
-        
-            document.querySelector("header").classList.toggle("top", !window.scrollY);
-
-            window.addEventListener("scroll", (event) => {
-                document.querySelector("header").classList.toggle("top", !this.scrollY);
-            });
-
-            document.querySelector("nav").addEventListener("mouseover", ()=>{
-                document.querySelector("header").classList.remove("top");
-            });
-
-            document.querySelector("nav").addEventListener("mouseout", ()=>{
-                document.querySelector("header").classList.toggle("top", !window.scrollY);
-            });
-
-            document.querySelectorAll("a[href='#']").forEach(v=>{
-                v.addEventListener("click", e=>{
-                    e.preventDefault();
-                });
-            });
-
-            document.querySelector("footer").classList.toggle("line", !document.querySelector("section.contact"));
-        }
-    </script>
 
 </body>
 </html>
