@@ -97,3 +97,7 @@
     width: 90%;
     margin: 0 auto;
 }
+#board a{
+    text-decoration: none;
+
+}
