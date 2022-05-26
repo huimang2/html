@@ -1,5 +1,7 @@
 /** 박혁진 **/
-
+body{
+    font-size: 0.75em;
+}
 article.article-4 h1{
     text-align: center;
     font-size: 44px;
@@ -12,19 +14,19 @@ article.article-4{
     padding: 0 0 90px;
     margin: 0 auto;
     overflow: hidden;
-}
+    }
 article.article-4 .grid{
     width: 1200px;
     height: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, 20%);
     grid-auto-rows: 240px;
-    place-content: center center;
+    place-content: center;
     margin: 0 auto;
 }
 article.article-4 .col-1{
     grid-column: auto/span 1;
-    
+
 
 }
 article.article-4 .col-2{
@@ -53,6 +55,12 @@ section .customer{
 section a{color: #fff;
     text-decoration: none;  
 }
+section>.flex>.insta{
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1;
+
+}
 section .grid-container{
     display: grid;
     grid-template-areas: 
@@ -62,7 +70,8 @@ section .grid-container{
     justify-items: start;
     align-items: center;
     color: #9f9f9f;
-    row-gap: 5px;
+    row-gap: 15px;
+
 }
 section .flex{
     display: flex;
@@ -72,12 +81,15 @@ section .flex{
 section .flex>.grid-container>.title{
     grid-area: title;
     color: #fff;
-    font: 1.17em;
+    font-size: 1.17em;
+    font-weight: bold;
 }
 section .flex>.grid-container>.text{
     grid-area: text;
-    font:0.75em;
 
+}
+section>.flex>.grid-container>div:nth-child(n+3){
+    margin-right: 10px;
 }
 section .flex>.grid-container>.message{
     grid-area: message;
@@ -93,6 +105,7 @@ section .flex>.grid-container>.number{
     grid-area: number;
     font-size: 14px;
 }
+
 
 @media screen and (max-width: 1250px) {
     article.article-4 > .grid {
