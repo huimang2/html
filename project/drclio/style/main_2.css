@@ -38,39 +38,60 @@ article.article-4 > .grid > a > img {
 article.article-4 > .grid > a:hover > img {
     transform: scale(1.05);
 }
-section.contact {
-    background-color: #2c2c2c;
+section{
+         background-color: #2c2c2c;
+         color: #fff;
+         padding: 10px 0;
 }
-section.contact .customer {
-    width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
+section .customer{
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 25px 0;
 }
-section.contact .left {
-    color: #fff;
-    float: left;
-    font-size: 8px;
-    padding: 50px 0 50px;
-    padding-left: 20px;
+section a{color: #fff;
+            text-decoration: none;  
 }
-section.contact .right {
-    float: right;
-    width: 365px;
-    color: #fff;
-    font: 1.17em;    
+section .grid-container{
+            display: grid;
+            grid-template-areas: 
+            "title title title tile"
+            "text text text text"
+            "message online telling number ";
+            justify-items: start;
+            align-items: center;
+            color: #9f9f9f;
+            row-gap: 5px;
 }
-section.contact .time {
-    font:0.75em;
-    color: #9f9f9f;
+        section .flex{
+            display: flex;
+            justify-content: space-between;
+            
 }
-section.contact th {
-    color: #9f9f9f;
-    font-size: 14px;
+section .flex>.grid-container>.title{
+            grid-area: title;
+            color: #fff;
+            font: 1.17em;
 }
-section.contact a:link { color: #fff; }
-section.contact a:visited { color : #fff; }
-section.contact a:hover { color : #ffff; }
-section.contact a:active { color : #fff; }
+section .flex>.grid-container>.text{
+            grid-area: text;
+            font:0.75em;
+            
+}
+section .flex>.grid-container>.message{
+            grid-area: message;
+}
+section .flex>.grid-container>.online{
+            grid-area: online;
+            text-decoration: none;
+}
+section .flex>.grid-container>.telling{
+            grid-area: telling;
+}
+section .flex>.grid-container>.number{
+            grid-area: number;
+            font-size: 14px;
+}
 
 @media screen and (max-width: 1250px) {
     article.article-4 > .grid {
