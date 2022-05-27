@@ -15,7 +15,7 @@ main > .wrap > .head_img > img {
     width: 2000px;
     top: 0;
     left: 50%;
-    margin-left: -1001px;
+    margin-left: -1000px;
 }
 main > .wrap {
     width: 1000px;
