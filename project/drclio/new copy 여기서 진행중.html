@@ -10,17 +10,20 @@
             margin: 0;
             padding: 0;
         }
-        .container{
+        .container {
             min-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template: 408px 102px 100px 1712px 200px / 1fr 1000px 1fr;
+            grid-template: 408px 132px 100px 1712px 200px / 1fr 1000px 1fr;
             grid-template-areas:
                 "banner banner banner"
                 ". title ."
                 ". menu ."
                 ". products ."
                 ". page_button .";
+        }
+        a {
+            text-decoration: none;
         }
 
         #new_content {grid-area: banner;}
@@ -29,14 +32,14 @@
         #products {grid-area: products;}
         #page_button {grid-area: page_button;}
 
-        #new_content{
+        #new_content {
             position: relative;
             justify-content: center;
             width: 100%;
             height: 408px;
             overflow: hidden;
         }
-        .new_banner img{
+        .new_banner img {
             position: absolute;
             top: 0;
             left: 50%;
@@ -44,30 +47,61 @@
             
         }
         
-        #title{
+        #title {
             display: flex;
             justify-content: space-between;
             border-bottom: 2px solid gray;
-            align-items: center;
+            padding-top: 50px;
+            margin-bottom: 30px;
         }
-        #title .title_button{
-            display: flex;  
+        #title h3 {
+            color: #2e2e2e;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        #title .title_button {
+            display: flex;
+            column-gap: 8px;
+        }
+        #title .title_button a {
+            color: #757575;
+            font-size: 12px;
         }
 
         #menu .menu {
             display: flex;
             flex-wrap: wrap;
         }
-        #menu .menu div{
+        #menu .menu div {
             width: 173px;
             margin: 10px 10px 0px 0px;
             padding: 10px 5px 10px 10px;
             font-size: 12px;
+            color: #898888;
             border: 1px solid #d7d5d5;
         }
 
-        #products{
+        #products {
+            margin-top: 80px;
+        }
+        #products .products {
             display: grid;
+            justify-content: space-around;
+            grid-row-gap: 80px;
+            grid-template: repeat(4, 348px) / repeat(3, 310px)
+        }
+        #products .products > div {
+            width: 310px;
+            border: 1px solid tan;
+            box-sizing: border-box;
+        }
+        #products .products > div > div {
+            color: #555555;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #products .products a img {
+            width: 308px;
         }
         
     </style>
@@ -76,19 +110,19 @@
     <main class="container">
         <article id="new_content">
             <div class="new_banner">
-                <img src="../../clio/img/new&best.jpg">
+                <img src="../drclio/img/new&best.jpg">
             </div>
         </article>
 
         <article id="title">
             <div class="title_left">
-                <div><h3>NEW&BEST</h3></div>
+                <h3>NEW&BEST</h3>
             </div>
             <div class="title_button">
                 <a href="/"></a>
-                <div>></div>
+                <div>&gt;</div>
                 <a href="http://www.drclio.co.kr/category/product/57/">PRODUCT</a>
-                <div>></div>
+                <div>&gt;</div>
                 <a href="http://www.drclio.co.kr/category/%ED%81%B4%EB%A6%AC%EC%96%B4%EC%8A%A4/79/">NEW&BEST</a>
             </div>
         </article>
@@ -107,17 +141,67 @@
         </article>
         
         <article id="products">
-            <div>
-                <div>크리오 덴티메이트 맥스 초극세모</div>
-                <div>크리오 쿨맥스민트 치약</div>
-                <div>클리어스 혀클리너</div>
-                <div>클리어스 틈새양치엔 3mm 초슬림 헤드</div>
-                <div>블랙터치 완전미세모</div>
-                <div>크리오 덴티메이트 시즌2 라운딩모</div>
-                <div>크리오 덴티메이트 시즌2 초극세모</div>
-                <div>크리오 친환경 일도 제주감귤숯 초극세모 칫솔</div>
-                <div>크리오 올클린 스테인레스 혀클리너</div>
-                <div>크리오 펌프팝 트로피칼 펌프치약</div>
+            <div class="products">
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%AC%EB%A6%AC%EC%98%A4-%EB%8D%B4%ED%8B%B0%EB%A9%94%EC%9D%B4%ED%8A%B8-%EB%A7%A5%EC%8A%A4-%EC%B4%88%EA%B7%B9%EC%84%B8%EB%AA%A8/374/category/24/display/1/">
+                        <img src="../drclio/img/new&best 첫번째.jpg">
+                    </a>
+                    <div>크리오 덴티메이트 맥스 초극세모</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%AC%EB%A6%AC%EC%98%A4-%EC%BF%A8%EB%A7%A5%EC%8A%A4%EB%AF%BC%ED%8A%B8-%EC%B9%98%EC%95%BD/375/category/24/display/1/">
+                        <img src="../drclio/img/new&best 두 번째.jpg">
+                    </a>
+                    <div>크리오 쿨맥스민트 치약</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%B4%EB%A6%AC%EC%96%B4%EC%8A%A4-%ED%98%80%ED%81%B4%EB%A6%AC%EB%84%88/376/category/24/display/1/">
+                        <img src="../drclio/img/new&best 세 번째.jpg">
+                    </a>
+                    <div>클리어스 혀클리너</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%B4%EB%A6%AC%EC%96%B4%EC%8A%A4-%ED%8B%88%EC%83%88%EC%96%91%EC%B9%98%EC%97%94-3mm-%EC%B4%88%EC%8A%AC%EB%A6%BC-%ED%97%A4%EB%93%9C/365/category/24/display/1/">
+                        <img src="../drclio/img/new&best 네 번째.jpg">
+                    </a>
+                    <div>클리어스 틈새양치엔 3mm 초슬림 헤드</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%EB%B8%94%EB%9E%99%ED%84%B0%EC%B9%98-%EC%99%84%EC%A0%84%EB%AF%B8%EC%84%B8%EB%AA%A8/382/category/24/display/1/">
+                        <img src="../drclio/img/new&best 다섯 번째.jpg">
+                    </a>
+                    <div>블랙터치 완전미세모</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%AC%EB%A6%AC%EC%98%A4-%EB%8D%B4%ED%8B%B0%EB%A9%94%EC%9D%B4%ED%8A%B8-%EC%8B%9C%EC%A6%8C2-%EB%9D%BC%EC%9A%B4%EB%94%A9%EB%AA%A8/349/category/24/display/1/">
+                        <img src="../drclio/img/new&best 여섯 번째.jpg">
+                    </a>
+                    <div>크리오 덴티메이트 시즌2 라운딩모</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%AC%EB%A6%AC%EC%98%A4-%EB%8D%B4%ED%8B%B0%EB%A9%94%EC%9D%B4%ED%8A%B8-%EC%8B%9C%EC%A6%8C2-%EC%B4%88%EA%B7%B9%EC%84%B8%EB%AA%A8/360/category/24/display/1/">
+                        <img src="../drclio/img/new&best 일곱 번째.jpg">
+                    </a>
+                    <div>크리오 덴티메이트 시즌2 초극세모</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%AC%EB%A6%AC%EC%98%A4-%EC%B9%9C%ED%99%98%EA%B2%BD-%EC%9D%BC%EB%8F%84-%EC%A0%9C%EC%A3%BC%EA%B0%90%EA%B7%A4%EC%88%AF-%EC%B4%88%EA%B7%B9%EC%84%B8%EB%AA%A8-%EC%B9%AB%EC%86%94/410/category/24/display/1/">
+                        <img src="../drclio/img/new&best 여덟 번째.jpg">
+                    </a>
+                    <div>크리오 친환경 일도 제주감귤숯 초극세모 칫솔</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%AC%EB%A6%AC%EC%98%A4-%EC%98%AC%ED%81%B4%EB%A6%B0-%EC%8A%A4%ED%85%8C%EC%9D%B8%EB%A0%88%EC%8A%A4-%ED%98%80%ED%81%B4%EB%A6%AC%EB%84%88/412/category/24/display/1/">
+                        <img src="../drclio/img/new&best 아홉 번째.jpg">
+                    </a>
+                    <div>크리오 올클린 스테인레스 혀클리너</div>
+                </div>
+                <div>
+                    <a href="http://www.drclio.co.kr/product/%ED%81%AC%EB%A6%AC%EC%98%A4-%ED%8E%8C%ED%94%84%ED%8C%9D-%ED%8A%B8%EB%A1%9C%ED%94%BC%EC%B9%BC-%ED%8E%8C%ED%94%84%EC%B9%98%EC%95%BD/411/category/24/display/1/">
+                        <img src="../drclio/img/new&best 열 번째.jpg">
+                    </a>
+                    <div>크리오 펌프팝 트로피칼 펌프치약</div>
+                </div>
             </div>
         </article>
             
