@@ -163,7 +163,9 @@ main > .wrap > form.contact_us > select {
     height: 24px;
     border: 1px solid #d5d5d5;
 }
-main > .wrap > form.contact_us > input[type=text] {
+main > .wrap > form.contact_us input[type=text],
+main > .wrap > form.contact_us input[type=email],
+main > .wrap > form.contact_us input[type=tel] {
     width: 500px;
     height: 18px;
     line-height: 20px;
@@ -195,6 +197,9 @@ input + p {
 #privacy_agreement {
     height: 100px;
     width: 100%;
+    padding: 5px 6px;
+    border: 1px solid #d5d5d5;
+    line-height: 1.5;
 }
 main > .wrap > form.contact_us > input[type=submit] {
     grid-column: auto / span 2;
