@@ -1,2 +1,151 @@
 /** 문정은 **/
 
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    min-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: 408px 132px 100px 1712px 122px / 1fr 1000px 1fr;
+    grid-template-areas:
+        "banner banner banner"
+        ". title ."
+        ". menu ."
+        ". products ."
+        ". page_button .";
+    font: 0.75em 'Roboto','NanumGothic','맑은 고딕',Verdana,Dotum,AppleGothic,sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+#new_content {grid-area: banner;}
+#title {grid-area: title;}
+#menu {grid-area: menu;}
+#products {grid-area: products;}
+#page_button {grid-area: page_button;}
+
+#new_content {
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 408px;
+    overflow: hidden;
+}
+.new_banner img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1000px;
+    
+}
+
+#title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid gray;
+    padding-top: 50px;
+    margin-bottom: 30px;
+}
+#title h3 {
+    color: #2e2e2e;
+    font-size: 25px;
+    font-weight: 600;
+}
+#title .title_button {
+    display: flex;
+    column-gap: 8px;
+}
+#title .title_button a {
+    color: #757575;
+    font-size: 12px;
+}
+#title .title_button a:first-child {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(http://www.drclio.co.kr/dmedi/img/ico_home.jpg) no-repeat 0px 0px;
+}
+#title .title_button a:not(:first-child)::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 13px;
+    background: url(http://img.echosting.cafe24.com/skin/base/layout/ico_path.gif) no-repeat 0px 4px;
+}
+
+#menu .menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+#menu .menu div {
+    width: 173px;
+    margin: 10px 10px 0px 0px;
+    padding: 10px 5px 10px 10px;
+    border: 1px solid #d7d5d5;
+}
+#menu .menu div > a {
+    color: #898888;
+    font-size: 12px;
+}
+#menu .menu div > a:hover {
+    color: black;
+}
+#menu .menu div > a.selected {
+    color: black;
+}
+#menu .menu > div > a::after{
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: url(http://www.drclio.co.kr/dmedi/img/ico_menu_category.gif) no-repeat 100% 5px;
+}
+#menu .menu div > a:hover::after {
+    background: url(http://www.drclio.co.kr/dmedi/img/ico_menu_category.gif) no-repeat 100% -95px;
+}
+
+#products {
+    margin-top: 80px;
+}
+#products .products {
+    display: grid;
+    justify-content: space-around;
+    grid-row-gap: 80px;
+    grid-template: repeat(4, 348px) / repeat(3, 310px)
+}
+#products .products > div {
+    width: 310px;
+    border: 1px solid #ededed;
+    box-sizing: border-box;
+}
+#products .products > div > div {
+    color: #555555;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+#products .products a img {
+    width: 308px;
+}
+
+#page_button .page_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+#page_button .page_button div > a {
+    font-weight: bold;
+    color: #939393;
+    font-family: '돋움';
+    padding: 5px;
+}
+#page_button .page_button div:nth-child(3) > a {
+    margin: 0px 5px;
+}
+#page_button .page_button .selected {
+    color: black;
+}
