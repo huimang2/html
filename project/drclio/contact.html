@@ -18,7 +18,7 @@
 <body>
     <!-- 조인국 -->
     <header class="top">
-        <div class="logo"><a href="#">CLIO</a></div>
+        <div class="logo"><a href="./">CLIO</a></div>
         <nav>
             <div>
                 <a href="#">COMPANY</a>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div>
-                <a href="#">PRODUCT</a>
+                <a href="./gallery.html">PRODUCT</a>
                 <ul>
                     <li><a href="#">NEW&amp;BEST</a></li>
                     <li><a href="#">클리어스</a></li>
@@ -43,7 +43,7 @@
                 </ul>
             </div>
             <div>
-                <a href="#">Clean CLIO</a>
+                <a href="./board.html">Clean CLIO</a>
                 <ul>
                     <li><a href="#">구강케어 정보</a></li>
                     <li><a href="#">EVENT</a></li>
@@ -57,9 +57,9 @@
                 </ul>
             </div>
             <div>
-                <a href="#">CONTACT US</a>
+                <a href="./contact.html">CONTACT US</a>
                 <ul>
-                    <li><a href="#">CONTACT US</a></li>
+                    <li><a href="./contact.html">CONTACT US</a></li>
                 </ul>
             </div>
         </nav>
@@ -82,7 +82,7 @@
         <div class="head_img"><img src="./img/svi-5.jpg" /></div>
 
         <div class="wrap">
-            
+
             <div class="title">
                 <h2>CONTACT US</h2>
                 <div class="path">
@@ -91,6 +91,107 @@
             </div>
 
             <p>어디가 궁금하신가요? 긴급문의를 보내주시면 최대한 신속하게 답변을 드리겠습니다.</p>
+
+            <section class="contact-table">
+                <div>대표번호</div>
+                <div>02-6920-6700</div>
+                <div>고객센터</div>
+                <div>080-706-3810</div>
+                <div>국내영업문의</div>
+                <div>capital1@drclio.co.kr</div>
+                <div>국내영업문의</div>
+                <div>capital1@drclio.co.kr</div>
+                <div>국내영업문의</div>
+                <div>capital1@drclio.co.kr</div>
+                <div>국내영업문의</div>
+                <div>capital1@drclio.co.kr</div>
+                <div>국내영업문의</div>
+                <div>capital1@drclio.co.kr</div>
+                <div>대표변호 또는<br>이메일 문의</div>
+            </section>
+
+            <form class="contact_us">
+
+                <p class="required">필수입력사항</p>
+
+                <label for="question">질문유형</label>
+                <select id="question" name="question">
+                    <option value="1">국내영업문의</option>
+                    <option value="2">온라인영업문의</option>
+                    <option value="3">특판문의</option>
+                    <option value="4">해외영업문의</option>
+                    <option value="5">기타문의</option>
+                </select>
+
+                <label for="title">문의제목</label>
+                <input id="title" name="title" type="text" />
+
+                <label for="prd_ord">상품 / 주문 검색</label>
+                <div>
+                    <input id="prd_ord" name="prd_ord" type="text" />
+                </div>
+
+                <div>답변수신방식</div>
+                <div class="chk_reply">
+                    <input id="chk_reply_type0" name="chk_reply_type" type="radio" value="E" checked />
+                    <label for="chk_reply_type0">이메일</label>
+                </div>
+
+                <label for="email">이메일</label>
+                <div>
+                    <input type="email" id="email" name="email" />
+                    <p>예) master@domain.com</p>
+                </div>
+
+                <label for="mobile">휴대폰</label>
+                <div>
+                    <input type="tel" id="mobile" name="mobile">
+                    <p>예) 000-0000-0000</p>
+                </div>
+
+                <label for="writer" class="required">작성자</label>
+                <input type="text" id="writer" name="writer" />
+
+                <label for="content" class="required">내용</label>
+                <textarea id="content" name="content"></textarea>
+
+                <label for="attach_file1">첨부파일1</label>
+                <input type="file" id="attach_file1" name="attach_file[]" />
+
+                <label for="attach_file2">첨부파일2</label>
+                <input type="file" id="attach_file1" name="attach_file[]" />
+
+                <label for="attach_file3">첨부파일3</label>
+                <input type="file" id="attach_file3" name="attach_file[]" />
+
+                <label for="attach_file4">첨부파일4</label>
+                <input type="file" id="attach_file4" name="attach_file[]" />
+                
+                <label for="attach_file5">첨부파일5</label>
+                <input type="file" id="attach_file5" name="attach_file[]" />
+
+                <div>개인정보 수집 및<br>이용 동의</div>
+                <div class="privacy_agreement">
+                    <textarea id="privacy_agreement" name="privacy_agreement" readonly="readonly">
+■ 개인정보의 수집·이용 목적
+서비스 제공 및 계약의 이행, 구매 및 대금결제, 물품배송 또는 청구지 발송, 회원관리 등을 위한 목적
+
+■ 수집하려는 개인정보의 항목
+이름, 주소, 연락처, 이메일 등
+
+■ 개인정보의 보유 및 이용 기간
+회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외없이 해당정보를 파기합니다.
+                    </textarea>
+                    <div class="chk_reply">
+                        <input type="radio" id="privacy_agreement_radio0" name="is_agreed_privacy_agreement" value="T" />
+                        <label for="privacy_agreement_radio0">동의함</label>
+                        <input type="radio" id="privacy_agreement_radio1" name="is_agreed_privacy_agreement" value="F" checked />
+                        <label for="privacy_agreement_radio1">동의안함</label>
+                    </div>
+                </div>
+
+                <input type="submit" value="등록" />
+            </form>
 
         </div>
     </main>

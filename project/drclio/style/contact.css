@@ -51,8 +51,141 @@ main > .wrap > .title > .path > div::before {
     float: left;
     margin-left: 8px;
 }
-
 main > .wrap > p {
     margin: 20px 0;
     color: #8f8f8f;
+}
+main > .wrap > section.contact-table {
+    display: grid;
+    grid-template-columns: repeat(2, 200px 270px);
+    grid-template-rows: 60px;
+    grid-auto-rows: 50px;
+    width: 1000px;
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+    align-content: center;
+}
+main > .wrap > section.contact-table > div:not(:last-child):nth-child(n+7) {
+    order: 1;
+}
+main > .wrap > section.contact-table > div {
+    padding: 5px 0;
+    background-color: white;
+    border: 3px solid #cac7be;
+    display: grid;
+    align-content: center;
+}
+main > .wrap > section.contact-table > :nth-child(2n+1) {
+    background: #e7e6e4;
+    justify-content: center;
+}
+main > .wrap > section.contact-table > :nth-child(2n) {
+    padding: 5px 15px;
+}
+main > .wrap > section.contact-table > :nth-child(-n+4) {
+    margin-bottom: 10px;
+    border-bottom-width: 3px;
+}
+main > .wrap > section.contact-table > :not(:last-child):not(:nth-child(4)) {
+    border-right-width: 0;
+}
+main > .wrap > section.contact-table > :not(:nth-child(2n+5)):not(:first-child) {
+    border-left-width: 0;
+}
+main > .wrap > section.contact-table > :nth-child(n+5):nth-last-child(n+4) {
+    border-bottom-width: 0;
+}
+main > .wrap > section.contact-table > :nth-child(2n+6) {
+    grid-column: auto / span 2;
+}
+main > .wrap > section.contact-table > :last-child {
+    grid-row: auto / span 5;
+    text-align: center;
+}
+main > .wrap > form.contact_us {
+    display: grid;
+    grid-template-columns: 130px auto;
+    gap: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #777;
+    font-weight: 500;
+    padding: 0 20px;
+    margin-bottom: 70px;
+}
+main > .wrap > form.contact_us > p.required {
+    grid-column: auto / span 2;
+    text-align: right;
+    font-size: 0.75em;
+    padding-bottom: 10px;
+    margin: 0 0 -10px;
+    border-bottom: 2px solid black;
+}
+main > .wrap > form.contact_us > p.required::before {
+    content: "*";
+    color: red;
+    font-weight: bold;
+    margin-right: 5px;
+}
+main > .wrap > form.contact_us > .required:not(p)::after {
+    content: "*";
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+main > .wrap > form.contact_us > select {
+    width: fit-content;
+    height: 24px;
+    border: 1px solid #d5d5d5;
+}
+main > .wrap > form.contact_us > input[type=text] {
+    width: 500px;
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+}
+main > .wrap > form.contact_us > input[type=radio] {
+    width: 13px;
+    height: 13px;
+}
+input[type=radio] + label {
+    margin: 0 4px 0 2px;
+}
+main > .wrap > form.contact_us .chk_reply {
+    display: flex;
+}
+input + p {
+    margin: 5px 0 0;
+}
+#content {
+    width: 500px;
+    height: 100px;
+    padding: 5px 6px;
+    border: 1px solid #d5d5d5;
+    line-height: 1.5;
+}
+#privacy_agreement {
+    height: 100px;
+    width: 100%;
+}
+main > .wrap > form.contact_us > input[type=submit] {
+    grid-column: auto / span 2;
+    place-self: center;
+    cursor: pointer;
+    color: white;
+    background: #333;
+    border: 1px solid #333;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 15px 20px;
+    transition-duration: 0.4s;
+}
+main > .wrap > form.contact_us > input[type=submit]:hover {
+    background: #666;
+    border: 1px solid #666;
 }
