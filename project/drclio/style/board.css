@@ -30,18 +30,20 @@
 }
 #board .flex{
     font-size: 0.65em;
+
 }
-#board a:link{
-    color: #757575;
-  }
-#board a:visited {
-    color : black;
+#board .content>.event>.flex>.right{
+    line-height: 27px;
+    padding-right: 5px;
 }
-#board a:hover {
-    color : black;
+#board [class^=icon]{
+    padding-right: 5px;
 }
-#board a:active {
-    color : black;
+#board a{
+    color:#757575;
+    font-size: 14px;
+    text-decoration:none;
+    padding-right: 5px;
 }
 #board .sized {
     width: 100%;
