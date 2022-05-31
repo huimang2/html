@@ -17,7 +17,7 @@ header {
     padding: 0 50px;
     background:#fff;
     border-bottom: 1px solid #ddd;
-    z-index: 2;
+    z-index: 9999;
 }
 header > .logo {
     width: 300px;
