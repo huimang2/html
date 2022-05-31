@@ -16,7 +16,7 @@ a {
     height: 664px;
     overflow: hidden;
 }
-#visual .DB_img > li {
+#visual .DB_img > a {
     position: absolute;
     top: 0;
     left: 50%;
@@ -25,11 +25,11 @@ a {
     opacity: 0;
     transition: opacity .8s ease;
 }
-#visual .DB_img > li.selected {
+#visual .DB_img > a.selected {
     opacity: 1;
     z-index: 1;
 }
-#visual .DB_img > li > a > img {
+#visual .DB_img > a > img {
     width: 100%;
 }
 #visual .DB_menu {
@@ -44,14 +44,14 @@ a {
     width: 100%;
     z-index: 2;
 }
-#visual .DB_menu > li > a {
+#visual .DB_menu > a {
     display: block;
     width: 8px;
     height: 8px;
     background: darkgray;
     border-radius: 50%;
 }
-#visual .DB_menu > li.selected > a {
+#visual .DB_menu > a.selected {
     background: white;
 }
 
