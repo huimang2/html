@@ -7,6 +7,8 @@ article.article-4 h1{
     font-size: 44px;
     font-weight: bold;
     line-height: 1.8;
+    margin-top: 100px;
+    padding-bottom: 50px;
 }
 article.article-4{
     background-color: #ebebec;

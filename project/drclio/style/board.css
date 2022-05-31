@@ -109,8 +109,10 @@
     text-decoration: none;
 }
 #board .content{
-    width: 90%;
-    margin: 0 auto;
+    width: 1200px;
+    margin: 0px auto ;
 }
-
+@media screen and (max-width: 1250px) {
+    #board .content {width:1000px;}
+}
 

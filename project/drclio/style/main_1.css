@@ -1,4 +1,12 @@
 /** 문정은 **/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
 
 #visual .DB_img {
     list-style: none;
@@ -8,7 +16,7 @@
     height: 664px;
     overflow: hidden;
 }
-#visual .DB_img > li {
+#visual .DB_img > a {
     position: absolute;
     top: 0;
     left: 50%;
@@ -17,11 +25,11 @@
     opacity: 0;
     transition: opacity .8s ease;
 }
-#visual .DB_img > li.selected {
+#visual .DB_img > a.selected {
     opacity: 1;
     z-index: 1;
 }
-#visual .DB_img > li > a > img {
+#visual .DB_img > a > img {
     width: 100%;
 }
 #visual .DB_menu {
@@ -36,94 +44,178 @@
     width: 100%;
     z-index: 2;
 }
-#visual .DB_menu > li > a {
+#visual .DB_menu > a {
     display: block;
     width: 8px;
     height: 8px;
     background: darkgray;
     border-radius: 50%;
 }
-#visual .DB_menu > li.selected > a {
+#visual .DB_menu > a.selected {
     background: white;
 }
 
-#banner {
-    display: grid;
-    width: 1200px;
-    margin: 0 auto;
+#banner{
+    width: 100%;
     padding: 100px 0;
     background-color: #f5f5f5;
-    grid-template-columns: repeat(auto-fill, 24%);
+}
+#banner .grid{
+    display: grid;
+    margin: 0 auto;
+    width: 1200px;
+    grid-template-columns: repeat(auto-fill,24%);
     grid-gap: 1%;
     /* space-between 걸고 갭 1퍼도 주는 이유 찾아보기 */
     justify-content: space-between;
     justify-items: center;
 }
-#banner .col-1 {
+#banner .col-1{
     display: grid;
     grid-template-rows: 207px 150px;
     align-items: center;
-
+    background-color: #ffffff;
 }
-#banner>.col-1:not(:last-child)>div{
+#banner .col-1:not(:last-child)>div{
     text-align: center;
     font-size: 20px;
     font-weight: 500;
 }
-#banner>div:nth-child(2)>div:nth-child(2)>div:nth-child(2){
+#banner .grid .care > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
 }
-#banner>.col-1:nth-child(4)>div:first-child{
+#banner .grid>.col-1:nth-child(4)>div:first-child{
     align-self: flex-end;
 }
-.col-1 h3{
+#banner .grid>div:nth-child(4){
+    width: 100%;
+    padding: 0 25px;
+    box-sizing: border-box;
+}
+#banner .col-1 h3{
     font-size: 18px;
     font-weight: 600;
     height: 30px;
+}
+#banner .news_head > div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid #a7a7a7;
 }
-.more::before{
-    background-color: #a8a8a8;
-    content: '|';
-    transform: rotate(0deg);
+#banner .more {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 16px;
+    height: 16px;
     transition: all .2s ease;
 }
-#news{
+#banner .more::before {
+    position: absolute;
+    background-color: #a8a8a8;
+    content: '';
+    width: 2px;
+    height: 100%;
+}
+#banner .more::after {
+    position: absolute;
+    background-color: #a8a8a8;
+    content: '';
     width: 100%;
-    padding: 100px 0;
+    height: 2px;
 }
-.news{
-    display: grid;
-    width: 1200px;
-    justify-content: center;
-    margin: 0 auto;
+#banner .more:hover {
+    transform: rotate(360deg);
 }
-.news_title{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-}
-.news_title>h2{
-    font-size: 44px;
-    margin-bottom: 10px;
-}
-.news_list>div{
+#banner .news_list>div{
     height:35px;
 }
-.news_list span{
+#banner .news_list span{
     font-size: 12px;
     color: #ffffff;
     background-color: #727272;
     padding: 4px;
 }
-.news_list a{
+#banner .news_list a{
     font-size: 13px;
+    color: #000;
 }
-.video{
+
+#news{
+    width: 100%;
+    padding: 100px 0;
+}
+#news .news{
+    display: grid;
+    width: 1200px;
+    justify-content: center;
+    margin: 0 auto;
+}
+#news .news_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#news .news_title>h2{
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+#news .news_title p{
+    font-size: 18px;
+    color: #616161;
+    font-weight: 500;
+}
+#news .video{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 1200px;
+    height: 330px;
     gap: 25px;
+}
+#news .video div iframe{
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width:1250px) {
+    #banner .grid {
+        width: 1000px;
+        grid-template-columns: repeat(4, 240px);
+    }
+    #banner .col-1 {
+        grid-template-rows: 174px 138px;
+    }
+    #banner .col-1:not(:last-child) a > img {
+        width: 240px;
+        height: 174px;
+    }
+    #banner .care > div:nth-child(2) img {
+        width: 44px;
+        height: 17px;
+    }
+    #banner .care > div:nth-child(2) {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    #banner .col-1:nth-child(4) a > img {
+        width: 188px;
+        height: 104px;
+    }
+    #banner .news_list > div:first-child {
+        width: 190px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #news .video {
+        width: 1000px;
+        gap: 20px;
+    }
 }
