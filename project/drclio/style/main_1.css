@@ -70,7 +70,6 @@ a {
     justify-content: space-between;
     justify-items: center;
 }
-
 #banner .col-1{
     display: grid;
     grid-template-rows: 207px 150px;
@@ -134,54 +133,89 @@ a {
 #banner .more:hover {
     transform: rotate(360deg);
 }
-
-#news{
-    width: 100%;
-    padding: 100px 0;
-}
-.news{
-    display: grid;
-    width: 1200px;
-    justify-content: center;
-    margin: 0 auto;
-}
-.news_title{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-}
-.news_title>h2{
-    font-size: 44px;
-    margin-bottom: 10px;
-}
-.news_title p{
-    font-size: 18px;
-    color: #616161;
-    font-weight: 500;
-}
-.news_list>div{
+#banner .news_list>div{
     height:35px;
 }
-.news_list span{
+#banner .news_list span{
     font-size: 12px;
     color: #ffffff;
     background-color: #727272;
     padding: 4px;
 }
-.news_list a{
+#banner .news_list a{
     font-size: 13px;
     color: #000;
 }
-.video{
+
+#news{
+    width: 100%;
+    padding: 100px 0;
+}
+#news .news{
+    display: grid;
+    width: 1200px;
+    justify-content: center;
+    margin: 0 auto;
+}
+#news .news_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#news .news_title>h2{
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+#news .news_title p{
+    font-size: 18px;
+    color: #616161;
+    font-weight: 500;
+}
+#news .video{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 1200px;
     height: 330px;
     gap: 25px;
 }
-
-.video div iframe{
+#news .video div iframe{
     width: 100%;
     height: 100%;
+}
+
+@media screen and (max-width:1250px) {
+    #banner .grid {
+        width: 1000px;
+        grid-template-columns: repeat(4, 240px);
+    }
+    #banner .col-1 {
+        grid-template-rows: 174px 138px;
+    }
+    #banner .col-1:not(:last-child) a > img {
+        width: 240px;
+        height: 174px;
+    }
+    #banner .care > div:nth-child(2) img {
+        width: 44px;
+        height: 17px;
+    }
+    #banner .care > div:nth-child(2) {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    #banner .col-1:nth-child(4) a > img {
+        width: 188px;
+        height: 104px;
+    }
+    #banner .news_list > div:first-child {
+        width: 190px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #news .video {
+        width: 1000px;
+        gap: 20px;
+    }
 }
