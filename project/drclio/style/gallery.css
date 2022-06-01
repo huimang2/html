@@ -14,7 +14,7 @@
         ". menu ."
         ". products ."
         ". page_button .";
-    font: 0.75em 'Roboto','NanumGothic','맑은 고딕',Verdana,Dotum,AppleGothic,sans-serif;
+    font-size: 0.75em;
 }
 a {
     text-decoration: none;
@@ -70,14 +70,14 @@ a {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: url(http://www.drclio.co.kr/dmedi/img/ico_home.jpg) no-repeat 0px 0px;
+    background: url(../img/ico_home.jpg) no-repeat 0px 0px;
 }
 #title .title_button a:not(:first-child)::before {
     content: "";
     display: inline-block;
     width: 12px;
     height: 13px;
-    background: url(http://img.echosting.cafe24.com/skin/base/layout/ico_path.gif) no-repeat 0px 4px;
+    background: url(../img/ico_path.gif) no-repeat 0px 4px;
 }
 
 #menu .menu {
@@ -105,10 +105,10 @@ a {
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: url(http://www.drclio.co.kr/dmedi/img/ico_menu_category.gif) no-repeat 100% 5px;
+    background: url(../img/ico_menu_category.gif) no-repeat 100% 5px;
 }
 #menu .menu div > a:hover::after {
-    background: url(http://www.drclio.co.kr/dmedi/img/ico_menu_category.gif) no-repeat 100% -95px;
+    background: url(../img/ico_menu_category.gif) no-repeat 100% -95px;
 }
 
 #products {
