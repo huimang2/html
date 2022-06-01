@@ -27,7 +27,7 @@ window.onload = function() {
     document.querySelector(".search_modal > .wrap").addEventListener("click", (e)=>e.stopPropagation());
 
     window.addEventListener("keydown", (event) => {
-        if( event.keyCode == 27 && document.getElementById("site_map").checked) {
+        if( event.keyCode == 27) {
             document.getElementById("site_map").click();
         } else if( event.keyCode == 27 && !document.getElementById("site_map").checked && document.getElementById("search_modal").checked) {
             document.getElementById("search_modal").click();
