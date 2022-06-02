@@ -9,7 +9,6 @@ a {
 }
 
 #visual .DB_img {
-    list-style: none;
     padding: 0;
     margin: 0;
     position: relative;
@@ -54,7 +53,28 @@ a {
 #visual .DB_menu > a.selected {
     background: white;
 }
-
+#visual .DB_Button {
+    position: absolute;
+    width: 100%;
+    top: 300px;
+    z-index: 2;
+}
+#visual .prev_Button {
+    position: absolute;
+    left: 10px;
+    opacity: 0.2;
+}
+#visual .next_Button {
+    position: absolute;
+    right: 10px;
+    opacity: 0.2;
+}
+#visual .prev_Button:hover {
+    opacity: 1;
+}
+#visual .next_Button:hover {
+    opacity: 1;
+}
 #banner{
     width: 100%;
     padding: 100px 0;
