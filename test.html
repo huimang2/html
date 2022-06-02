@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > a {
+            display: block;
+            position: absolute;
+            display: none;
+        }
+        .selected {display: block;}
+    </style>
+</head>
+<body>
+    <a href="#"><img src="./project/drclio/img/img01.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img02.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img03.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img04.jpg"></a>
+    <a href="#" class="selected"><img src="./project/drclio/img/img05.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img06.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img07.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img08.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img09.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img10.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img11.jpg"></a>
+    <a href="#"><img src="./project/drclio/img/img12.jpg"></a>
+</body>
+<script>
+    function changeImage(){
+
+        let i;
+        const a = document.querySelectorAll("body>a");
+
+        for(let i=0; i<length; i++){
+            if(a[i].classList.contains("selected")){
+                break;
+            }
+        }
+        
+        a[i].classList.remove("selected");
+        if(i==a.length-1) i=-1;
+        a[i+1].classList.add("selected");
+    }
+</script>
+</html>
