@@ -8,10 +8,6 @@ window.onload = function() {
         else document.querySelector('.gotop').classList.remove("display");
     });
 
-    document.querySelector('.gotop').addEventListener("click",()=>{
-        window.scrollTo(0,0);
-    })
-
     document.querySelector("nav").addEventListener("mouseover", ()=>{
         document.querySelector("header").classList.remove("top");
     });
