@@ -2,9 +2,15 @@ window.onload = function() {
 
     document.querySelector("header").classList.toggle("top", !window.scrollY);
 
-    window.addEventListener("scroll", (event) => {
+    window.addEventListener("scroll", () => {
         document.querySelector("header").classList.toggle("top", !this.scrollY);
+        if(this.scrollY >= 500) document.querySelector('.gotop').classList.add("display");
+        else document.querySelector('.gotop').classList.remove("display");
     });
+
+    document.querySelector('.gotop').addEventListener("click",()=>{
+        window.scrollTo(0,0);
+    })
 
     document.querySelector("nav").addEventListener("mouseover", ()=>{
         document.querySelector("header").classList.remove("top");
