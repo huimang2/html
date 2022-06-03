@@ -61,19 +61,31 @@ a {
 }
 #visual .prev_Button {
     position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
     left: 10px;
     opacity: 0.2;
+    background: url(../img/prev_Button.gif) no-repeat 100%;
 }
 #visual .next_Button {
     position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
     right: 10px;
     opacity: 0.2;
+    background: url(../img/next_Button.gif) no-repeat 100%;
 }
 #visual .prev_Button:hover {
     opacity: 1;
+    cursor: pointer;
+    background: url(../img/prev_Button_on.gif) no-repeat 100%;
 }
 #visual .next_Button:hover {
     opacity: 1;
+    cursor: pointer;
+    background: url(../img/next_Button_on.gif) no-repeat 100%;
 }
 #banner{
     width: 100%;
@@ -86,7 +98,6 @@ a {
     width: 1200px;
     grid-template-columns: repeat(auto-fill,24%);
     grid-gap: 1%;
-    /* space-between 걸고 갭 1퍼도 주는 이유 찾아보기 */
     justify-content: space-between;
     justify-items: center;
 }
