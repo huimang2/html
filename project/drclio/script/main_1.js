@@ -4,7 +4,7 @@
     
     var interval = setInterval(changeImage, 4000);
 
-    function changeImage() {
+    function changeImage(a=1) {
         let i;
         for(i=0; i<image.length; i++) {
             if(image[i].classList.contains("selected")){
@@ -13,11 +13,15 @@
         }
         image[i].classList.remove("selected");
         menu[i].classList.remove("selected");
-        if(i==image.length-1) {
+        if(i==image.length-1 && a==1) {
             i=-1;
         }
-        image[i+1].classList.add("selected");
-        menu[i+1].classList.add("selected");
+        else if(i==0 && a==-1){
+            i=image.length
+        }
+ 
+        image[i+a].classList.add("selected");
+        menu[i+a].classList.add("selected");
     }
     
     for(let i=0; i<menu.length; i++){
@@ -31,4 +35,6 @@
             interval = setInterval(changeImage, 4000);
         });
     }
+
+    
     
